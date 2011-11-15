@@ -1,4 +1,4 @@
-function [A,X]=eigensing(eps)
+function [A,X]=eigm(eps)
     A=diag([1,2,3,4]);
     X=[1,2,3,4;-4,3,1,5;11,-2,3,5];
     X=X'*X;
