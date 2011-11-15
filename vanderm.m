@@ -1,2 +1,2 @@
-function A = vanderm(h)
-A = vander(1 + (1:4)*h);
+function A = vanderm(epsilon)
+A = vander(1 + (1:4)*epsilon);
