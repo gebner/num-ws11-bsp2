@@ -1,4 +1,4 @@
-function ploterrs(A_h, b)
+function h = ploterrs(A_h, b)
 h = 2.^-(1:20);
 e = zeros(size(h));
 c = zeros(size(h));
@@ -11,5 +11,4 @@ end
 loglog(1./h, e, 'r;error;'); hold on
 loglog(1./h, c, 'g;condition;');
 xlabel '1/h'
-ylabel 'relative error'
 hold off
