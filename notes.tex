@@ -1,0 +1,78 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+\usepackage{listings}
+\lstset{language=Octave, basicstyle=\tt, tabsize=8,
+  breaklines=true, caption=\texttt\lstname, captionpos=b}
+\DeclareFontShape{OT1}{cmtt}{bx}{n}
+{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
+\begin{document}
+
+\title{Numerische Mathematik UE -- 2. Projekt, Teilprojekt 1 und 2}
+\author{Gabriel Ebner, Johannes Hafner}
+\maketitle
+
+\section{Theoretischer Teil}
+
+\subsection{Singulärwertzerlegung}
+
+Bla bla bla
+
+\subsection{Eigenwertzerlegung}
+
+Bla bla bla
+
+\subsection{Vandermondematrix}
+
+Bla bla bla
+
+\section{Experimenteller Teil}
+
+\subsection{Plots der Fehlerverläufe und Konditionen}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_eig.pdf}
+\caption{Matrix in Eigenwertzerlung: Fehler beim Lösen des LSG, Kondition von \(X \Lambda X^{-1}\), Kondition von \(X\). }
+\label{fig:eig}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_svd.pdf}
+\caption{Matrix in Singulärwertzerlung: Fehler beim Lösen des LSG, Kondition von \(UDV^T\). }
+\label{fig:svd}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_vander.pdf}
+\caption{Vandermondematrix: Fehler beim Lösen des LSG, Kondition von \(A\). }
+\label{fig:svd}
+\end{figure}
+
+\subsection{Betriebsmittel}
+
+Die Berechnungen wurden mit double precision unter Octave 3.2.4 und Ubuntu
+Oneiric (amd64) auf einem AMD Phenom II X4 965 Prozessor durchgeführt.
+
+\subsubsection{Quelltext}
+
+\lstinputlisting{eigm.m}
+\lstinputlisting{eigv.m}
+\lstinputlisting{svdm.m}
+\lstinputlisting{svdv.m}
+\lstinputlisting{vanderm.m}
+\lstinputlisting{vanderv.m}
+\lstinputlisting{errsolve.m}
+\lstinputlisting{ploterrs.m}
+\lstinputlisting{ploterrs_eig.m}
+\lstinputlisting{plots.m}
+
+\end{document}

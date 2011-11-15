@@ -1,5 +1,5 @@
 function h = ploterrs(A_h, b)
-h = 2.^-(1:20);
+h = 2.^-(1:40);
 e = zeros(size(h));
 c = zeros(size(h));
 
