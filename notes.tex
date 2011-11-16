@@ -77,6 +77,19 @@ ursprünglichen Vektor berechnet und geplottet.  Bei der Matrix in
 Eigenwerzerlegung haben wir darüberhinaus auch noch die Kondition der
 Transformationsmatrix geplottet.
 
+Wir haben auch versucht, Rechenfehler beim Lösen eines LGS mit einer
+orthogonalen Systemmatrix zu erreichen.  Dazu haben wir eine Householder-Matrix
+mit einem zufälligen Vektor genommen, und den relativen Fehler beim Lösen mit
+einem anderem zufälligen Vektor berechnet:
+
+\begin{verbatim}
+octave:26> errsolve(householder(randn(1000,1)), randn(1000,1))
+ans =  1.2240e-15
+\end{verbatim}
+
+Bei anderen orthogonalen Matrizen haben wir generell bessere Ergebnisse
+bekommen, zum Teil sogar exakte Lösungen.
+
 \subsection{Fehlermeldungen}
 
 Octave gibt erwartungsgemäß die Fehlermeldung \texttt{matrix singular to
@@ -98,6 +111,7 @@ Oneiric (amd64) auf einem AMD Phenom II X4 965 Prozessor durchgeführt.
 \lstinputlisting{svdv.m}
 \lstinputlisting{vanderm.m}
 \lstinputlisting{vanderv.m}
+\lstinputlisting{householder.m}
 \lstinputlisting{errsolve.m}
 \lstinputlisting{ploterrs.m}
 \lstinputlisting{ploterrs_eig.m}
