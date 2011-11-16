@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-EPSFIGS = $(addprefix fig_, eig.eps svd.eps vander.eps)
+EPSFIGS = $(addprefix fig_, eig.eps eig100.eps svd.eps vander.eps)
 PDFFIGS = $(subst .eps,.pdf,$(EPSFIGS))
 
 all: notes.pdf
