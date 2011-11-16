@@ -39,8 +39,18 @@ Als Beispiel einer Matrix in Eigenwertzerlegung mit gutkonditionierter
 Transformationsmatrix und betragskleinen Eigenwerten haben wir die Matrix
 \(UDV^T = UDU^{-1}\) von oben gewählt.
 
-Bla bla bla
+Wenn man versucht, die Transformationsmatrix schlecht konditioniert zu wählen, hat man das Problem, eine schlecht konditionierte Matrix zu brauchen, um eine zu produzieren.
+Um eine fast singuläre Matrix zu bekommen wurde daher eine Zufällige \(n\times (n-1)\) Matrix generiert und diese mit ihrer Transponierten multipliziert.
 
+Dadurch entsteht eine \(n\times n\) Matrix mit Rang \(n-1\). Durch abändern dieser Matrix an einer Stelle um \(\epsilon\) ist die Matrix fast singulär.
+Dies wurde für \(n=4\) und \(n=100\) durchgeführt.
+
+Für 4 ist dabei folgende Matrix entstanden:
+\[ \left( \begin{array}{rrrr}
+		1.2562 & 1.7888 & 1.0016 & 1.3217 \\
+    1.7888 & 2.7091 & 1.5753 & 2.0358 \\
+    1.0016 & 1.5753 & 1.0705 & 1.0737 \\
+    1.3217 & 2.0358 & 1.0737 & 1.6465\end{array} \right) \]
 \subsection{Vandermondematrix}
 
 Wir haben eine Vandermondematrix zu den vier Stützstellen \(1 + \epsilon i\)
@@ -60,8 +70,15 @@ Wir haben eine Vandermondematrix zu den vier Stützstellen \(1 + \epsilon i\)
 \begin{figure}[!htb]
 \centering
 \includegraphics{fig_eig.pdf}
-\caption{Matrix in Eigenwertzerlegung: Fehler beim Lösen des LGS, Kondition von \(X \Lambda X^{-1}\), Kondition von \(X\). }
+\caption{Matrix in Eigenwertzerlegung: Fehler beim Lösen des LGS, Kondition von \(X \Lambda X^{-1}\), Kondition von \(X\). n=4}
 \label{fig:eig}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_eig100.pdf}
+\caption{Matrix in Eigenwertzerlegung: Fehler beim Lösen des LGS, Kondition von \(X \Lambda X^{-1}\), Kondition von \(X\). n=100}
+\label{fig:eig100}
 \end{figure}
 
 \begin{figure}[!htb]
@@ -94,13 +111,13 @@ bekommen, zum Teil sogar exakte Lösungen.
 
 Octave gibt erwartungsgemäß die Fehlermeldung \texttt{matrix singular to
 machine precision} bei entsprechend kleinem \(\epsilon\) aus; bei der Matrix in
-Eigenwertzerlegung ab \(\epsilon \leq 2^{-15}\), bei der Vandermondematrix ab
+Eigenwertzerlegung für \(n=4\) ab \(\epsilon \leq 2^{-15}\), bei der Vandermondematrix ab
 \(\epsilon \leq 2^{-17}\), und bei der Matrix in Singulärwertzerlegung ab
 \(\epsilon \leq 2^{-51}\).
 
-Matlab gibt Fehlermeldungen bei der Matrix in Eigenwertzerlegung ab \(\epsilon
-\leq 2^{-11}\) (ab \(\epsilon \leq 2^{-31}\) schlägt auch die Berechnung der
-Testmatrix fehl), bei der Vandermondematrix ab \(\epsilon \leq 2^{-15}\), und
+Matlab die Fehlermeldung \texttt{Warning: Matrix is close to singular or badly scaled.} bei der Matrix in Eigenwertzerlegung ab \(\epsilon
+\leq 2^{-7}\) (ab \(\epsilon \leq 2^{-30}\) schlägt auch die Berechnung der
+Testmatrix beim invertieren der Transformationsmatrix fehl), bei der Vandermondematrix ab \(\epsilon \leq 2^{-15}\), und
 bei der Matrix in Singulärwertzerlegung ab \(\epsilon \leq 2^{-51}\).
 
 \subsection{Betriebsmittel}
