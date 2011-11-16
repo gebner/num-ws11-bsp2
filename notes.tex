@@ -98,10 +98,16 @@ Eigenwertzerlegung ab \(\epsilon \leq 2^{-15}\), bei der Vandermondematrix ab
 \(\epsilon \leq 2^{-17}\), und bei der Matrix in Singulärwertzerlegung ab
 \(\epsilon \leq 2^{-51}\).
 
+Matlab gibt Fehlermeldungen bei der Matrix in Eigenwertzerlegung ab \(\epsilon
+\leq 2^{-11}\) (ab \(\epsilon \leq 2^{-31}\) schlägt auch die Berechnung der
+Testmatrix fehl), bei der Vandermondematrix ab \(\epsilon \leq 2^{-15}\), und
+bei der Matrix in Singulärwertzerlegung ab \(\epsilon \leq 2^{-51}\).
+
 \subsection{Betriebsmittel}
 
 Die Berechnungen wurden mit double precision unter Octave 3.2.4 und Ubuntu
-Oneiric (amd64) auf einem AMD Phenom II X4 965 Prozessor durchgeführt.
+Oneiric (amd64) auf einem Intel i5 M540 durchgeführt; bzw. unter Matlab 7.11.0
+und Windows 7 auf einem AMD Athlon II M300.
 
 \subsubsection{Quelltext}
 
