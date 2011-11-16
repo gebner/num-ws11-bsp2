@@ -22,9 +22,22 @@
 
 \subsection{Singulärwertzerlegung}
 
-Bla bla bla
+Wir haben \(D = \mathrm{diag}(1,2,3,\epsilon)\) und \(U=V\) wie folgt gewählt:
+
+\[ U = \frac 1 2 \left( \begin{array}{rrrr}
+ 1 &  1 &  1 &  1 \\
+ 1 & -1 & -1 &  1 \\
+ 1 &  1 & -1 & -1 \\
+ 1 & -1 &  1 & -1
+\end{array} \right) \]
+
+Offensichtlich haben wir \(\mathrm{cond}(UDV^T) = \frac 3 \epsilon\).
 
 \subsection{Eigenwertzerlegung}
+
+Als Beispiel einer Matrix in Eigenwertzerlegung mit gutkonditionierter
+Transformationsmatrix und betragskleinen Eigenwerten haben wir die Matrix
+\(UDV^T = UDU^{-1}\) von oben gewählt.
 
 Bla bla bla
 
@@ -39,16 +52,16 @@ Wir haben eine Vandermondematrix zu den vier Stützstellen \(1 + \epsilon i\)
 
 \begin{figure}[!htb]
 \centering
-\includegraphics{fig_eig.pdf}
-\caption{Matrix in Eigenwertzerlegung: Fehler beim Lösen des LSG, Kondition von \(X \Lambda X^{-1}\), Kondition von \(X\). }
-\label{fig:eig}
+\includegraphics{fig_svd.pdf}
+\caption{Matrix in Singulärwertzerlegung: Fehler beim Lösen des LSG, Kondition von \(UDV^T\). }
+\label{fig:svd}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
-\includegraphics{fig_svd.pdf}
-\caption{Matrix in Singulärwertzerlegung: Fehler beim Lösen des LSG, Kondition von \(UDV^T\). }
-\label{fig:svd}
+\includegraphics{fig_eig.pdf}
+\caption{Matrix in Eigenwertzerlegung: Fehler beim Lösen des LSG, Kondition von \(X \Lambda X^{-1}\), Kondition von \(X\). }
+\label{fig:eig}
 \end{figure}
 
 \begin{figure}[!htb]
@@ -60,7 +73,9 @@ Wir haben eine Vandermondematrix zu den vier Stützstellen \(1 + \epsilon i\)
 
 Um die Rechenfehler zu bestimmen, haben wir für jede Matrix zunächst das LGS
 gelöst, dann wieder die Matrix angewendet, und dann den relativen Fehler zum
-ursprünglichen Vektor berechnet und geplottet.
+ursprünglichen Vektor berechnet und geplottet.  Bei der Matrix in
+Eigenwerzerlegung haben wir darüberhinaus auch noch die Kondition der
+Transformationsmatrix geplottet.
 
 \subsection{Fehlermeldungen}
 
